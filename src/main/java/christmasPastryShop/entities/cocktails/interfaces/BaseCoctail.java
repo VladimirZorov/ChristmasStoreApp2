@@ -1,19 +1,21 @@
-package christmasPastryShop.entities.delicacies.interfaces;
+package christmasPastryShop.entities.cocktails.interfaces;
 
 import christmasPastryShop.common.ExceptionMessages;
 
 import static christmasPastryShop.common.ExceptionMessages.*;
 
-public abstract class BaseDelicacy implements Delicacy{
+public abstract class BaseCoctail implements Cocktail{
 
     private String name;
-    private double portion;
+    private int size;
     private double price;
+    private String brand;
 
-    public BaseDelicacy(String name, double portion, double price) {
+    public BaseCoctail(String name, int size, double price, String brand) {
         this.setName(name);
-        this.setPortion(portion);
+        this.setSize(size);
         this.setPrice(price);
+        this.setBrand(brand);
     }
 
     public void setName(String name) {
@@ -23,11 +25,11 @@ public abstract class BaseDelicacy implements Delicacy{
         this.name = name;
     }
 
-    public void setPortion(double portion) {
-        if (portion <= 0) {
-            throw new IllegalArgumentException(INVALID_PORTION);
+    public void setSize(int size) {
+        if (size <= 0) {
+            throw new IllegalArgumentException(INVALID_SIZE);
         }
-        this.portion = portion;
+        this.size = size;
     }
 
     public void setPrice(double price) {
@@ -37,14 +39,21 @@ public abstract class BaseDelicacy implements Delicacy{
         this.price = price;
     }
 
+    public void setBrand(String brand) {
+        if (brand == null || brand.trim().isEmpty()) {
+            throw new IllegalArgumentException(INVALID_BRAND);
+        }
+        this.brand = brand;
+    }
+
     @Override
     public String getName() {
         return this.name;
     }
 
     @Override
-    public double getPortion() {
-        return this.portion;
+    public int getSize() {
+        return this.size;
     }
 
     @Override
@@ -53,11 +62,17 @@ public abstract class BaseDelicacy implements Delicacy{
     }
 
     @Override
+    public String getBrand() {
+        return this.brand;
+    }
+
+    @Override
     public String toString() {
-        return "BaseDelicacy{" +
+        return "BaseCoctail{" +
                 "name='" + name + '\'' +
-                ", portion=" + portion +
+                ", size=" + size +
                 ", price=" + price +
+                ", brand='" + brand + '\'' +
                 '}';
     }
 }
