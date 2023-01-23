@@ -1,6 +1,6 @@
 package christmasPastryShop.entities.cocktails.interfaces;
 
-public class Hibernation extends BaseCoctail{
+public class Hibernation extends BaseCocktail {
 
     private static final double HIBERNATION_PRICE = 4.50;
 

@@ -1,17 +1,15 @@
 package christmasPastryShop.entities.cocktails.interfaces;
 
-import christmasPastryShop.common.ExceptionMessages;
-
 import static christmasPastryShop.common.ExceptionMessages.*;
 
-public abstract class BaseCoctail implements Cocktail{
+public abstract class BaseCocktail implements Cocktail{
 
     private String name;
     private int size;
     private double price;
     private String brand;
 
-    public BaseCoctail(String name, int size, double price, String brand) {
+    public BaseCocktail(String name, int size, double price, String brand) {
         this.setName(name);
         this.setSize(size);
         this.setPrice(price);
